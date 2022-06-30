@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  www:
+    hostname: www
+    build: './www'
+    restart: always
+    volumes:
+      - './www:/usr/share/nginx/html'
+    ports:
+      - '80:80'
