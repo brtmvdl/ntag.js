@@ -1,0 +1,5 @@
+# nTag
+
+## License
+
+[MIT](LICENSE)
