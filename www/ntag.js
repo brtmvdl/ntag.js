@@ -54,18 +54,58 @@ class nTag {
     return this
   }
 
+  setStyleInContainer(name, value) {
+    this.container.style[name] = value
+    return this
+  }
+
   setText(text) {
     this.element.innerText = text
     return this
   }
 
-  attr(name, value) {
+  setTextInContainer(text) {
+    this.container.innerText = text
+    return this
+  }
+
+  setAttribute(name, value) {
     this.element.setAttribute(name, value)
+    return this
+  }
+
+  setAttributeInContainer(name, value) {
+    this.container.setAttribute(name, value)
+    return this
+  }
+
+  on(name, value) {
+    this.element.addEventListener(name, value)
+    return this
+  }
+
+  onContainer(name, value) {
+    this.container.addEventListener(name, value)
     return this
   }
 
   append(ntag = new nTag) {
     this.element.append(ntag.render())
+    return this
+  }
+
+  appendInContainer(ntag = new nTag) {
+    this.container.append(ntag.render())
+    return this
+  }
+
+  addClass(name) {
+    this.element.classList.add(name)
+    return this
+  }
+
+  addClassInContainer(name) {
+    this.container.classList.add(name)
     return this
   }
 
@@ -102,10 +142,12 @@ class nAnchor extends nTag {
   }
 
   href(href) {
-    this.attr('href', href)
+    this.setAttribute('href', href)
     return this
   }
 }
+
+class nLink extends nAnchor {}
 
 class nH1 extends nTag {
   constructor() {
@@ -113,6 +155,9 @@ class nH1 extends nTag {
       element: { tagName: 'h1' },
       component: { name: 'h1' },
     })
+
+    this.setStyle('margin', '0')
+    this.setStyle('font-size', '3rem')
   }
 }
 
@@ -128,26 +173,12 @@ class nImage extends nTag {
   }
 
   src(src) {
-    this.attr('src', src)
+    this.setAttribute('src', src)
     return this
   }
 
   alt(alt) {
-    this.attr('alt', alt)
+    this.setAttribute('alt', alt)
     return this
   }
 }
-
-/// components ///
-
-class nCenter extends nTag {
-  constructor() {
-    super({
-      component: { name: 'center' },
-    })
-
-    this.setStyle('width', '')
-    this.setStyle('margin', '0 auto')
-  }
-}
-
