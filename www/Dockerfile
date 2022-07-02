@@ -1,3 +1,3 @@
-FROM nginx:stable-real
+FROM nginx:alpine
 
 WORKDIR . /usr/share/nginx/html
