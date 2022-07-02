@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>nTag.js</title>
+</head>
+
+<body>
+  <div id="app"></div>
+
+  <script src="./ntag.js"></script>
+  <script src="./components.js"></script>
+  <script>
+    nTag.fromElement(document.body)
+      .setStyle('background-color', '#eeeeee')
+      .setStyle('margin', '0')
+      .setStyle('padding', '0')
+
+    const app = nTag.fromId('app')
+
+    const header = new nCenter()
+    header.setStyleInContainer('background-color', '#000')
+    header.setStyle('padding', '1rem')
+
+    const title = new nH1()
+    title.setText('nTag.js')
+    title.setStyle('text-align', 'center')
+    title.setStyle('color', '#eeeeee')
+    header.append(title)
+
+    app.append(header)
+
+    const subheader = new nCenter()
+    subheader.setStyleInContainer('background-color', '#333')
+    subheader.setStyle('padding', '1rem')
+
+    const subheaderflex = new nFlex()
+
+    const subheader_left = new nTag()
+
+    const menuLink = new nFakeLink()
+    menuLink.setStyle('color', '#fff')
+    menuLink.setText('menu')
+    subheader_left.append(menuLink)
+
+    subheaderflex.append(subheader_left)
+
+    const subheader_right = new nTag()
+
+    const facebook_link = new nLink()
+    const facebook_icon = new nIcon()
+
+    facebook_icon.src()
+
+    facebook_link.append(facebook_icon)
+    subheader_right.append(facebook_link)
+
+
+    subheaderflex.append(subheader_right)
+    subheader.append(subheaderflex)
+
+    app.append(subheader)
+  </script>
+</body>
+
+</html>
